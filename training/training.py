@@ -10,7 +10,7 @@ def training():
     model = ModelFood()
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     callback = EarlyStopping(monitor='val_accuracy', patience=3)
-    history = model.fit(data.get_training('x'), data.get_training(), epochs=1000, 
+    history = model.fit(data.get_training('x'), data.get_training(), epochs=25, 
                         validation_split=0.1, batch_size=32, callbacks=[callback])
     model.save('model/food_classifier.keras')
     
